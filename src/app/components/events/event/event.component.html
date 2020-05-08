@@ -1,0 +1,25 @@
+<mat-card-header>
+	<mat-card-title>
+		<a [routerLink]="['/event', event.id]">
+			{{ event.title }}
+		</a>
+	</mat-card-title>
+</mat-card-header>
+<mat-card-content>
+	<p class="content">
+		{{ event.siglas }}
+	</p>
+	<p class="content">
+		{{ event.descrip }}
+	</p>
+</mat-card-content>
+<mat-divider></mat-divider>
+<mat-card-actions>
+	<mat-chip-list>
+		<mat-chip-list>
+			<mat-chip selected *ngFor="let topic of event.topics" [ngClass]="topic">
+				{{ topic }}
+			</mat-chip>
+		</mat-chip-list>
+	</mat-chip-list>
+</mat-card-actions>

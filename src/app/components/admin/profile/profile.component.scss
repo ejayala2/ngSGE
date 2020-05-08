@@ -1,0 +1,70 @@
+.container{
+	width: 90%;
+	margin: 0 auto;
+}
+.profile-card{
+	width: 100%;
+	margin-top: 50px;
+	justify-content: center;
+	.label{
+		display: inline-block;
+		vertical-align: top;
+		overflow: hidden;
+		position: relative;
+		margin: 20px;
+		text-align: center;
+		border-radius: 50%;
+	
+		p{
+		  position: absolute;
+		  width: 100%;
+		  background:#4f9ca5;
+		  color: #ffff;
+		  text-transform: uppercase;
+		  transition: all 0.5s ease;
+		}
+		img{
+		  display: block;
+		  width: 150px;
+		  height: 150px;
+		  border-radius: 50%;
+		  border: 2px solid #fff;
+		  &:hover{
+			border: 2px solid #4f9ca5;
+			cursor: pointer;
+		  }
+		}
+	  }
+	
+	  .bottom{
+		p{
+		  bottom: -50%;
+		}
+		&:hover p{
+		  bottom: 0%;
+		}
+	  }
+	
+	mat-card-header{
+		justify-content: center;
+	}
+	mat-card-title.mat-card-title{
+		justify-content: center;
+	}
+	mat-form-field,
+	input.mat-flat-button{
+		width: 60%;
+		display: block;
+		margin: 0 auto;
+	}
+	input.mat-flat-button{
+		background: #4f9ca5;
+		padding: 0.4rem;
+		color: #fff;
+	}
+	.mat-dialog-actions{
+		width: 100%;
+		min-height: 150px;
+		margin-top: 3rem;
+	}
+}

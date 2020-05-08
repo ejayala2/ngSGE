@@ -1,0 +1,10 @@
+<div class="container" *ngIf="events$ | async as events; else loading"> 
+	<mat-card class="event-card" *ngFor = "let event of events">
+		<app-event [event]="event"></app-event>
+	</mat-card>
+</div>
+<ng-template #loading>
+	<div class="container-spinner">
+		<mat-spinner></mat-spinner>
+	</div>
+</ng-template>

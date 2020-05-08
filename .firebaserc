@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sge-app-cfb10": {
+      "hosting": {
+        "ngSGE": [
+          "sge-app-cfb10"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sge-app-cfb10"
+  }
+}

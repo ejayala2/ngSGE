@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<div class="new-event-container">
+	<form [formGroup]="editEventForm" (ngSubmit)="editEvent(editEventForm.value)">
+		<mat-form-field>
+			<mat-label>Titulo</mat-label>
+			<input matInput placeholder="Titulo" formControlName="title">
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Siglas</mat-label>
+			<input matInput placeholder="Siglas" formControlName="siglas">
+		</mat-form-field>
+		<mat-form-field appearance="fill">
+			<mat-label>Descripción</mat-label>
+			<textarea matInput formControlName="descrip" placeholder="Descripción"></textarea>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Tópicos</mat-label>
+			<mat-select [formControl]="topicos" multiple>
+				<mat-option *ngFor="let topico of topicosList" [value]="topico">{{topico}}</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<div class="container-button">
+			<input type="submit" class="mat-flat-button" value="Registrar" 
+			[mat-dialog-close]="true">
+		</div>
+	</form>
+</div>
