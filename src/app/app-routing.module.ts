@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { DetailsEventComponent } from './components/events/details-event/details-event.component';
+import { BeaconComponent } from './components/beacons/beacon/beacon.component';
 
 const routes: Routes = [
   { path: 'login', loadChildren: () => import('./components/auth/login/login.module').then(m => m.LoginModule) },
@@ -11,6 +12,7 @@ const routes: Routes = [
     children:[
       { path: 'home', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule) }, 
       { path: 'event/:id', component: DetailsEventComponent },
+      { path: 'beacon/:id', component: BeaconComponent},
       { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule) },
       { 
         path: '',
@@ -19,7 +21,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule) },
+  { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({

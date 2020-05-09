@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserI } from '../../../shared/models/user.interface';
 import { AuthService } from './../../../shared/services/auth.service';
 import { FileI } from './../../../shared/models/file.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -28,6 +29,12 @@ export class ProfileComponent implements OnInit {
   onSaveUser(user:UserI): void{
     //this.authSvc.saveUserProfile(user, this.image);
     this.authSvc.preSaveProfile(user, this.image);
+    Swal.fire({
+      icon: 'success',
+      title: 'Los cambios se han guardado correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
   private initValuesForm(user: UserI){
     if(user.photoURL){

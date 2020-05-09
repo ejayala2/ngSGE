@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<div class="new-beacon-container">
+	<form [formGroup]="newBeaconForm" (ngSubmit)="addNewBeacon(newBeaconForm.value)">
+		<mat-form-field>
+			<mat-label>Nombre</mat-label>
+			<input matInput placeholder="nombre" formControlName="name">
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Sala</mat-label>
+			<input matInput placeholder="sala" formControlName="sala">
+		</mat-form-field>
+		<mat-form-field appearance="fill">
+			<mat-label>Descripción</mat-label>
+			<textarea matInput formControlName="descrip" placeholder="ubicación"></textarea>
+		</mat-form-field>
+		<div class="container-button">
+			<input type="submit" class="mat-flat-button" value="Registrar Beacon" 
+			[mat-dialog-close]="true">
+		</div>
+	</form>
+</div>

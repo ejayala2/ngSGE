@@ -23,6 +23,10 @@ import { ModalComponent } from './shared/components/modal/modal.component';
 import { EditEventComponent } from './components/events/edit-event/edit-event.component';
 import { EditEventModule } from './components/events/edit-event/edit-event.module';
 import { DetailsEventComponent } from './components/events/details-event/details-event.component';
+import { NewBeaconComponent } from './components/beacons/new-beacon/new-beacon.component';
+import { NewBeaconModule } from './components/beacons/new-beacon/new-beacon.module';
+import { BeaconComponent } from './components/beacons/beacon/beacon.component';
+import { ModalBeaconsComponent } from './shared/components/modal-beacons/modal-beacons.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { DetailsEventComponent } from './components/events/details-event/details
     ContainerAppComponent,
     ModalComponent,
     EditEventComponent,
-    DetailsEventComponent
+    DetailsEventComponent,
+    NewBeaconComponent,
+    BeaconComponent,
+    ModalBeaconsComponent,
   ],
   imports: [
     AngularFireStorageModule,
@@ -45,10 +52,12 @@ import { DetailsEventComponent } from './components/events/details-event/details
     AngularFireAuthModule,
     BrowserAnimationsModule,
     MaterialModule,
-    EditEventModule
+    EditEventModule,
+    NewBeaconModule
   ],
   entryComponents:[
-    ModalComponent
+    ModalComponent,
+    ModalBeaconsComponent
   ],
   providers: [
     {provide: StorageBucket, useValue:'gs://sge-app-cfb10.appspot.com'}

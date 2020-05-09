@@ -15,6 +15,12 @@ const routes: Routes = [
             m=> m.ListEventsModule
           )
       },
+      { 
+        path: 'beacons', 
+        loadChildren: () => 
+          import('../beacons/list-beacons/list-beacons.module').then(
+            m => m.ListBeaconsModule) 
+      },
       {
         path: 'profile',
         loadChildren: ()=>

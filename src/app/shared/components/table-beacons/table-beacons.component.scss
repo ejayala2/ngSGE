@@ -1,0 +1,39 @@
+/* Structure */
+.container{
+	width: 90%;
+	margin: 0 auto;
+}
+table {
+	width: 100%;
+  }
+  .mat-form-field{
+	  font-size: 1rem;
+	  width: 95%;
+	  margin: 0 auto;
+	  display: block;
+	  margin-top: 1rem;
+	  margin-left: 2.5px;
+  }
+  .mat-cell{
+	  font-size: 16px;
+	  margin: 0 auto;
+  }
+  .mat-header-cell{
+	  font-size: 18px;
+  }
+
+  .container-btn-new{
+	  display: flex;
+	  justify-content: flex-end;
+	  width: 100%;
+	  margin: 1rem -0.5rem;
+	  button{
+		  font-size: 16px;
+		  margin-right: 20px;
+		  width: 25%;
+		  padding: 0.5rem;
+		  color: #fff;
+		  background-color: #4f9ca5;
+		  cursor: pointer;
+	  }
+  }
