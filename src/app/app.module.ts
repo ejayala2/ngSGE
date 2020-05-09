@@ -27,6 +27,8 @@ import { NewBeaconComponent } from './components/beacons/new-beacon/new-beacon.c
 import { NewBeaconModule } from './components/beacons/new-beacon/new-beacon.module';
 import { BeaconComponent } from './components/beacons/beacon/beacon.component';
 import { ModalBeaconsComponent } from './shared/components/modal-beacons/modal-beacons.component';
+import { EditBeaconComponent } from './components/beacons/edit-beacon/edit-beacon.component';
+import { EditBeaconModule } from './components/beacons/edit-beacon/edit-beacon.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { ModalBeaconsComponent } from './shared/components/modal-beacons/modal-b
     NewBeaconComponent,
     BeaconComponent,
     ModalBeaconsComponent,
+    EditBeaconComponent,
   ],
   imports: [
     AngularFireStorageModule,
@@ -53,7 +56,8 @@ import { ModalBeaconsComponent } from './shared/components/modal-beacons/modal-b
     BrowserAnimationsModule,
     MaterialModule,
     EditEventModule,
-    NewBeaconModule
+    NewBeaconModule,
+    EditBeaconModule
   ],
   entryComponents:[
     ModalComponent,

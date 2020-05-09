@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BeaconI } from '../../../shared/models/beacon.interface';
 import { BeaconService } from '../beacon.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-beacon',
@@ -22,6 +23,12 @@ export class NewBeaconComponent implements OnInit {
   addNewBeacon(data: BeaconI){
     console.log('Nuevo beacon', data);
     this.beaconSvc.saveBeacon(data);
+    Swal.fire({
+      icon: 'success',
+      title: 'Se ha registrado el beacon de forma exitosa',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 }

@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { BeaconI } from 'src/app/shared/models/beacon.interface';
 import { map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
+
 
 @Injectable({
   providedIn: 'root'

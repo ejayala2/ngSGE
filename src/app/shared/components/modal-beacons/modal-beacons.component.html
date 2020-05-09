@@ -1,10 +1,10 @@
 <h2>{{data.message}}</h2>
 <mat-dialog-content class="dialog-content">
-	<!--<div *ngIf="data.content; else showNewForm">
-		<app-edit-event [beacon]="data.content"></app-edit-event>
-	</div>-->
-	<app-new-beacon></app-new-beacon>
-	<!--<ng-template #showNewForm>
+	<div *ngIf="data.content; else showNewForm">
+		<app-edit-beacon [beacon]="data.content"></app-edit-beacon>
+	</div>
+
+	<ng-template #showNewForm>
 		<app-new-beacon></app-new-beacon>
-	</ng-template>-->
+	</ng-template>
 </mat-dialog-content>
