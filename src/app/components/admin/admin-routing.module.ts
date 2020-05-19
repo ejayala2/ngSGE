@@ -9,6 +9,9 @@ const routes: Routes = [
     canActivate: [AuthGuard], 
     children:[
       {
+        path:'', redirectTo:'events', pathMatch: 'full'
+      },
+      {
         path: 'events',
         loadChildren: ()=>
           import('../events/list-events/list-events.module').then(

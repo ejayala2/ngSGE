@@ -41,7 +41,7 @@ export class TableBeaconsComponent implements OnInit {
     this.openDialog(beacon);
   }
 
-  //ELIMINAR BeaconO
+  //ELIMINAR Beacon
   onDeleteBeacon(beacon:BeaconI){
     console.log('delete beacon', beacon);
     Swal.fire({

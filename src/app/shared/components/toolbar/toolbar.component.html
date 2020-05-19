@@ -1,20 +1,28 @@
 <mat-toolbar color="primary">
 	<a routerLink="/">{{ appName }}</a>
 	<span class="fill-remaining-space"></span>
-	<a routerLink="/admin" routerLinkActive="active"
-	*ngIf="authSvc.userData$ | async"
-	>
+	<a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
+		<mat-icon>settings</mat-icon>
 		<button mat-button>Admin</button>
 	</a>
 	<a routerLink="/about" routerLinkActive="active">
+		<mat-icon>help_outline</mat-icon>
 		<button mat-button>About</button>
 	</a>
-	<a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
-		<button mat-button>Logout</button>
-	</a>
+	<button mat-button [matMenuTriggerFor]="menu">
+		<mat-icon>person_outline</mat-icon>
+	</button>
+	<mat-menu #menu="matMenu">
+		<a id="logout" mat-menu-item *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
+			<mat-icon>exit_to_app</mat-icon>Cerrar sesión
+		</a>
+	</mat-menu>
+
 	<ng-template #showLogin>
 		<a routerLink="/login" routerLinkActive="active">
+			<mat-icon class="mat-18">exit_to_app</mat-icon>
 			<button mat-button>Login</button>
 		</a>
 	</ng-template>
+
 </mat-toolbar>

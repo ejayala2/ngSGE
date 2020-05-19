@@ -30,6 +30,7 @@ import { ModalBeaconsComponent } from './shared/components/modal-beacons/modal-b
 import { EditBeaconComponent } from './components/beacons/edit-beacon/edit-beacon.component';
 import { EditBeaconModule } from './components/beacons/edit-beacon/edit-beacon.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,

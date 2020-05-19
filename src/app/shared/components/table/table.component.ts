@@ -7,6 +7,7 @@ import { EventI } from '../../models/event.interface';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from './../modal/modal.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -14,6 +15,7 @@ import { ModalComponent } from './../modal/modal.component';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit, AfterViewInit {
+  public events$: Observable<EventI[]>;
   displayedColumns: string[] = ['title', 'siglas', 'descrip', 'topics', 'actions'];
   dataSource = new MatTableDataSource();
  
@@ -22,8 +24,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   constructor(private eventSvc: EventService, public dialog:MatDialog) { }
 
   ngOnInit() {
-    this.eventSvc
-      .getAllEvents()
+    this.events$ = this.eventSvc.getAllEvents();
+    this.events$
       .subscribe(events=> (this.dataSource.data = events));
   }
 

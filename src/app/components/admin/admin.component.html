@@ -8,21 +8,26 @@
 	</a>
 	<span class="fill-remaining-space"></span>
 </mat-toolbar>
+<ng-template #loading>
+	<div class="container-spinner">
+		<mat-spinner></mat-spinner>
+	</div>
+</ng-template>
 <mat-sidenav-container class="content-container">
 	<mat-sidenav #sideNav [(opened)]="opened" mode="side">
 		<mat-nav-list>
-			<a mat-list-item routerLink="events">
+			<a mat-list-item routerLink="events" routerLinkActive="active">
 				<mat-icon>event</mat-icon>&nbsp;Eventos
 			</a>
 		</mat-nav-list>
 		<mat-divider></mat-divider>
 		<mat-nav-list>
-			<a mat-list-item routerLink="beacons">
+			<a mat-list-item routerLink="beacons" routerLinkActive="active">
 				<mat-icon>track_changes</mat-icon>&nbsp;Beacons
 			</a>
 		</mat-nav-list>
 		<mat-nav-list>
-			<a mat-list-item routerLink="profile">
+			<a mat-list-item routerLink="profile" routerLinkActive="active">
 				<mat-icon>account_circle</mat-icon>&nbsp;Perfil
 			</a>
 		</mat-nav-list>
