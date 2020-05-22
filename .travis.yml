@@ -1,0 +1,18 @@
+language: node_js
+services:
+  - docker
+node_js:
+  - "12.2.0"
+branches:
+  only:
+    - master
+before_script:
+  - npm install -g @angular/cli
+script:
+  - npm install
+  - npm run build
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: "1//059Z2jYKnMr5pCgYIARAAGAUSNwF-L9Ir0owo7u-wRi1ZaeKs2RW0se9J82lTrloFjRwpChysmDuNRpqL6I7Xle00o5Xx51Ad-vI"
