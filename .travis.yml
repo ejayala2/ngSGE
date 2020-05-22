@@ -1,6 +1,4 @@
 language: node_js
-services:
-  - docker
 node_js:
   - "12.2.0"
 branches:
