@@ -29,6 +29,8 @@ import { BeaconComponent } from './components/beacons/beacon/beacon.component';
 import { ModalBeaconsComponent } from './shared/components/modal-beacons/modal-beacons.component';
 import { EditBeaconComponent } from './components/beacons/edit-beacon/edit-beacon.component';
 import { EditBeaconModule } from './components/beacons/edit-beacon/edit-beacon.module';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { EditBeaconModule } from './components/beacons/edit-beacon/edit-beacon.m
     AppComponent,
     NewEventComponent,
     ToolbarComponent,
+    FooterComponent,
     ContainerAppComponent,
     ModalComponent,
     EditEventComponent,
@@ -44,6 +47,7 @@ import { EditBeaconModule } from './components/beacons/edit-beacon/edit-beacon.m
     BeaconComponent,
     ModalBeaconsComponent,
     EditBeaconComponent,
+    SidebarComponent
   ],
   imports: [
     AngularFireStorageModule,

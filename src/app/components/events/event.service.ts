@@ -21,6 +21,7 @@ export class EventService {
       map(actions =>
         actions.map(a=>{
           const data = a.payload.doc.data() as EventI;
+          //console.log(data);
           const id = a.payload.doc.id;
           return { id, ...data};
         })
@@ -45,7 +46,8 @@ export class EventService {
       title: event.title,
       siglas: event.siglas,
       descrip: event.descrip,
-      topics: event.topics
+      topics: event.topics,
+      sala: event.sala
     };
     if (event.id){
       return this.eventsCollection.doc(event.id).update(eventObj);

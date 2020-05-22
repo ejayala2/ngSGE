@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContainerAppComponent implements OnInit {
 
+  sideBarOpen = true;
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
+  
 }

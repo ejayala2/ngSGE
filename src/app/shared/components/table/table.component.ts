@@ -2,12 +2,17 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+//event
 import { EventService } from '../../../components/events/event.service';
 import { EventI } from '../../models/event.interface';
+//beacon 
+import { BeaconService } from '../../../components/beacons/beacon.service';
+import { BeaconI } from '../../models/beacon.interface';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from './../modal/modal.component';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-table',
@@ -16,12 +21,14 @@ import { Observable } from 'rxjs';
 })
 export class TableComponent implements OnInit, AfterViewInit {
   public events$: Observable<EventI[]>;
-  displayedColumns: string[] = ['title', 'siglas', 'descrip', 'topics', 'actions'];
+  public beacon$: Observable<BeaconI[]>;
+
+  displayedColumns: string[] = ['title', 'siglas', 'sala', 'topics', 'actions'];
   dataSource = new MatTableDataSource();
  
   @ViewChild(MatPaginator, {static:true})paginator:MatPaginator;
   @ViewChild(MatSort, {static: true})sort:MatSort;
-  constructor(private eventSvc: EventService, public dialog:MatDialog) { }
+  constructor(private eventSvc: EventService, private beaconSvc: BeaconService, public dialog:MatDialog) { }
 
   ngOnInit() {
     this.events$ = this.eventSvc.getAllEvents();

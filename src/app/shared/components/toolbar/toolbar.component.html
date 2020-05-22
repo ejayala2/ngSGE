@@ -1,4 +1,7 @@
 <mat-toolbar color="primary">
+	<button mat-icon-button (click)="toggleSideBar()">
+		<mat-icon>menu</mat-icon>
+	</button>
 	<a routerLink="/">{{ appName }}</a>
 	<span class="fill-remaining-space"></span>
 	<a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
