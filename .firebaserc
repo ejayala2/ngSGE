@@ -9,6 +9,7 @@
     }
   },
   "projects": {
-    "default": "sge-app-cfb10"
+    "default": "sge-app-cfb10",
+    "SGE": "sge-app-cfb10"
   }
 }
