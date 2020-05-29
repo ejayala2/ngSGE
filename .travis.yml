@@ -13,4 +13,5 @@ deploy:
   skip_cleanup: true
   provider: firebase
   token:
-    secure: "1//05Kcnq3CDVdqdCgYIARAAGAUSNwF-L9IrSwBOJu9ZjKz_TPMzSoRQhmF2zo3E3GNad41cJ0-syX74uXXwaU9DRPNOOtxfwNLsBd4"
+    secure: "1//01kfXoAfvQFfzCgYIARAAGAESNwF-L9Irgdm_3mQe__ipYo188mcmy7bo13ymmoJg22h6r2EcoHzZeAd_WNzFDnXB84b3e3LC7sg"
+  project: "sge-app-cfb10"
