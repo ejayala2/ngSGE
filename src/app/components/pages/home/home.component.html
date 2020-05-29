@@ -1,4 +1,4 @@
-<H2 class="primary">&nbsp;Panel de Eventos</H2>
+<H2 class="primary">&nbsp;Panel de Eventos </H2>
 <div class="container" *ngIf="events$ | async as events; else loading">
 	<mat-card class="event-card" *ngFor="let event of events">
 		<app-event [event]="event"></app-event>
