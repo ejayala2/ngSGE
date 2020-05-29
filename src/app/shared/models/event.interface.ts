@@ -6,5 +6,6 @@ export interface EventI{
 	siglas: string;
 	descrip: string;
 	topics: string;
-	sala: string;
+	sala?: string;
+	idsala?: string;
 }

@@ -47,7 +47,7 @@ export class EventService {
       siglas: event.siglas,
       descrip: event.descrip,
       topics: event.topics,
-      sala: event.sala
+      sala: event.idsala
     };
     if (event.id){
       return this.eventsCollection.doc(event.id).update(eventObj);

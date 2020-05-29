@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 //event
@@ -21,22 +21,44 @@ import { map } from 'rxjs/operators';
 })
 export class TableComponent implements OnInit, AfterViewInit {
   public events$: Observable<EventI[]>;
-  public beacon$: Observable<BeaconI[]>;
+  public eventList: EventI[] = [];
+  public eventObj: EventI;
+  public beacon$: Observable<BeaconI>;
 
   displayedColumns: string[] = ['title', 'siglas', 'sala', 'topics', 'actions'];
   dataSource = new MatTableDataSource();
- 
-  @ViewChild(MatPaginator, {static:true})paginator:MatPaginator;
-  @ViewChild(MatSort, {static: true})sort:MatSort;
-  constructor(private eventSvc: EventService, private beaconSvc: BeaconService, public dialog:MatDialog) { }
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  constructor(private eventSvc: EventService, private beaconSvc: BeaconService, public dialog: MatDialog) { }
 
   ngOnInit() {
+    /*this.events$ = this.eventSvc.getAllEvents();
+    this.events$
+      .subscribe(events=> (this.dataSource.data = events));*/
     this.events$ = this.eventSvc.getAllEvents();
     this.events$
-      .subscribe(events=> (this.dataSource.data = events));
+      .subscribe(events => {
+        events.forEach(element => {
+          this.beacon$ = this.beaconSvc.obtenerBeacon(element.sala);
+          this.beacon$.subscribe(res => {
+            const eventObj = {
+              id: element.id,
+              title: element.title,
+              siglas: element.siglas,
+              descrip: element.descrip,
+              topics: element.topics,
+              idsala: res.id,
+              sala: res.sala
+            };
+            this.eventList.push(eventObj as EventI)
+            this.dataSource.data = this.eventList;
+          })
+        })
+      })
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -45,47 +67,47 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   //EDITAR EVENTO
-  onEditEvent(event:EventI){
+  onEditEvent(event: EventI) {
     console.log('edit event', event);
     this.openDialog(event);
   }
 
   //ELIMINAR EVENTO
-  onDeleteEvent(event:EventI){
+  onDeleteEvent(event: EventI) {
     console.log('delete event', event);
     Swal.fire({
-      title:'¿Estás seguro de eliminar este Evento?',
-      text:'Luego de eliminar no se podra revertir!',
+      title: '¿Estás seguro de eliminar este Evento?',
+      text: 'Luego de eliminar no se podra revertir!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#e63244',
       cancelButtonColor: '#4f9ca5',
       confirmButtonText: 'Confirmar'
     }).then(result => {
-      if(result.value){
+      if (result.value) {
         //Borrar
-        this.eventSvc.deleteEventById(event).then(()=>{
+        this.eventSvc.deleteEventById(event).then(() => {
           Swal.fire('Eliminado!', 'El evento ha sido eliminado con éxito.', 'success');
-        }).catch((error)=> {
+        }).catch((error) => {
           Swal.fire('Error!', '¡Ha ocurrido un error al eliminar el evento!', 'error');
         });
       }
     })
   }
-  onNewEvent(){
+  onNewEvent() {
+    console.log('Nuevo evento');
     this.openDialog();
   }
 
-  openDialog(event?: EventI): void{
+  openDialog(event?: EventI): void {
     const config = {
-      data:{
+      data: {
         message: event ? 'Edit Event' : 'New Event',
         content: event
       }
     };
-    
     const dialogRef = this.dialog.open(ModalComponent, config);
-    dialogRef.afterClosed().subscribe(result=>{
+    dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result ${result}`);
     });
   }

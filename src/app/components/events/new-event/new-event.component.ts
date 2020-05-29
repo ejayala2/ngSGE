@@ -30,6 +30,7 @@ export class NewEventComponent implements OnInit {
     title: new FormControl('', Validators.required),
     siglas: new FormControl('', Validators.required),
     descrip: new FormControl('', Validators.required),
+    idsala: new FormControl('', Validators.required),
     topics: this.topicos
   })
   ngOnInit() {

@@ -31,6 +31,7 @@ export class EditEventComponent implements OnInit {
     title: new FormControl('', Validators.required),
     siglas: new FormControl('', Validators.required),
     descrip: new FormControl('', Validators.required),
+    sala: new FormControl('', Validators.required),
     topics: this.topicos,
 
   })
@@ -46,6 +47,7 @@ export class EditEventComponent implements OnInit {
       id: this.event.id,
       title:this.event.title,
       siglas:this.event.siglas,
+      sala: this.event.idsala,
       descrip:this.event.descrip,
       topics:this.event.topics
     })
