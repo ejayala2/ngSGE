@@ -40,7 +40,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.events$
       .subscribe(events => {
         events.forEach(element => {
-          this.beacon$ = this.beaconSvc.obtenerBeacon(element.sala);
+          this.beacon$ = this.beaconSvc.getBeacon(element.sala);
           this.beacon$.subscribe(res => {
             const eventObj = {
               id: element.id,
@@ -48,10 +48,10 @@ export class TableComponent implements OnInit, AfterViewInit {
               siglas: element.siglas,
               descrip: element.descrip,
               topics: element.topics,
-              idsala: res.id,
+              idsala: element.sala,
               sala: res.sala
             };
-            this.eventList.push(eventObj as EventI)
+            this.eventList.push(eventObj as EventI);
             this.dataSource.data = this.eventList;
           })
         })
@@ -69,6 +69,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   //EDITAR EVENTO
   onEditEvent(event: EventI) {
     console.log('edit event', event);
+    this.eventList = [];
     this.openDialog(event);
   }
 
@@ -87,6 +88,7 @@ export class TableComponent implements OnInit, AfterViewInit {
       if (result.value) {
         //Borrar
         this.eventSvc.deleteEventById(event).then(() => {
+          this.eventList = [];
           Swal.fire('Eliminado!', 'El evento ha sido eliminado con éxito.', 'success');
         }).catch((error) => {
           Swal.fire('Error!', '¡Ha ocurrido un error al eliminar el evento!', 'error');
@@ -96,6 +98,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
   onNewEvent() {
     console.log('Nuevo evento');
+    this.eventList = [];
     this.openDialog();
   }
 
@@ -109,6 +112,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     const dialogRef = this.dialog.open(ModalComponent, config);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result ${result}`);
+      this.eventList = [];
     });
   }
 }

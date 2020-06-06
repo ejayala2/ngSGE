@@ -1,12 +1,10 @@
 <mat-card-header>
 	<mat-card-title>
-		<a [routerLink]="['/event', event.id]">
-			{{ event.title }}
-		</a>
+		<a [routerLink]="['/event', event.id]">{{ event.title }}</a>
 	</mat-card-title>
 </mat-card-header>
 <mat-card-content>
-	<p class="content">
+	<p class="siglas">
 		{{ event.siglas }}
 	</p>
 	<p class="content">

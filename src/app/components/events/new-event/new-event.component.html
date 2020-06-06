@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <div class="new-event-container">
-	<form [formGroup]="newEventForm" (ngSubmit)="addNewEvent(newEventForm.value)">
+	<form [formGroup]="newEventForm" (ngSubmit)="addNewEvent(newEventForm.value)" (ngSubmit)="resetForm()">
 		<mat-form-field>
 			<mat-label>Titulo</mat-label>
 			<input matInput placeholder="Titulo" formControlName="title">
@@ -15,7 +15,11 @@
 		</mat-form-field>
 		<mat-form-field>
 			<mat-label>Sala</mat-label>
-			<input matInput placeholder="id de sala" formControlName="idsala">
+			<mat-select formControlName="sala">
+				<mat-option *ngFor="let beacon of Listbeacons" [value]="beacon.id">
+					{{beacon.sala}}
+				</mat-option>
+			</mat-select>
 		</mat-form-field>
 		<mat-form-field>
 			<mat-label>Tópicos</mat-label>
@@ -24,8 +28,7 @@
 			</mat-select>
 		</mat-form-field>
 		<div class="container-button">
-			<input type="submit" class="mat-flat-button" value="Registrar" 
-			[mat-dialog-close]="true">
+			<input type="submit" class="mat-flat-button" value="Registrar" [mat-dialog-close]="true">
 		</div>
 	</form>
 </div>

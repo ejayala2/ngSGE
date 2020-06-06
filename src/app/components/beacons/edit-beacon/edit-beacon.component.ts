@@ -21,6 +21,7 @@ export class EditBeaconComponent implements OnInit {
     descrip: new FormControl('', Validators.required),
   })
   ngOnInit() {
+
     this.initValuesForm();
   }
   editBeacon(beacon: BeaconI){
@@ -36,9 +37,9 @@ export class EditBeaconComponent implements OnInit {
   private initValuesForm():void{
     this.editBeaconForm.patchValue({
       id: this.beacon.id,
-      name:this.beacon.name,
-      sala:this.beacon.sala,
-      descrip:this.beacon.descrip
+      name: this.beacon.name,
+      sala: this.beacon.sala,
+      descrip: this.beacon.descrip
     })
   }
 

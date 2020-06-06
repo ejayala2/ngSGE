@@ -14,7 +14,12 @@ mat-sidenav{
 	top: 55px;
 	z-index: 1000;
 }
-
+.mat-list-base {
+    padding-top: 10px;
+	.mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+		padding: 0px 15px 0px 10px;
+	}
+}
 
 .mat-list-base .mat-list-item{
 	color: #fff;
@@ -22,7 +27,6 @@ mat-sidenav{
 	cursor: pointer;
 	font-size: 20px;
 }
-
 .mat-drawer-container{
 	height: 90%;
 }

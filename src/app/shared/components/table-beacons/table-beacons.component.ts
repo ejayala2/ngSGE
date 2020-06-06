@@ -74,7 +74,6 @@ export class TableBeaconsComponent implements OnInit {
         content: beacon
       }
     };
-    
     const dialogRef = this.dialog.open(ModalBeaconsComponent, config);
     dialogRef.afterClosed().subscribe(result=>{
       console.log(`Dialog result ${result}`);

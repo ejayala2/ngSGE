@@ -13,9 +13,18 @@
 			<mat-label>Descripción</mat-label>
 			<textarea matInput formControlName="descrip" placeholder="Descripción"></textarea>
 		</mat-form-field>
+		<!--
 		<mat-form-field appearance="fill">
 			<mat-label>Sala</mat-label>
 			<textarea matInput formControlName="sala" placeholder="sala"></textarea>
+		</mat-form-field>-->
+		<mat-form-field>
+			<mat-label>Sala</mat-label>
+			<mat-select formControlName="sala">
+				<mat-option *ngFor="let beacon of beacons" [value]="beacon.id">
+					{{beacon.sala}}
+				</mat-option>
+			</mat-select>
 		</mat-form-field>
 		<mat-form-field>
 			<mat-label>Tópicos</mat-label>
@@ -24,8 +33,7 @@
 			</mat-select>
 		</mat-form-field>
 		<div class="container-button">
-			<input type="submit" class="mat-flat-button" value="Registrar" 
-			[mat-dialog-close]="true">
+			<input type="submit" class="mat-flat-button" value="Registrar" [mat-dialog-close]="true">
 		</div>
 	</form>
 </div>

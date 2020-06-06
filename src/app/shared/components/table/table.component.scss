@@ -3,9 +3,17 @@
 	width: 90%;
 	margin: 0 auto;
 }
+.mat-paginator {
+    background: #fff;
+    font-size: 15px;
+}
 table {
 	width: 100%;
   }
+  
+  table.mat-table {
+    border-spacing: 15px;
+	}
   .mat-form-field{
 	  font-size: 1rem;
 	  width: 95%;

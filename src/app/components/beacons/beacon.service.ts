@@ -36,7 +36,7 @@ export class BeaconService {
   public getOneBeacon(id: BeaconI): Observable<BeaconI> {
     return this.afs.doc<BeaconI>(`beacons/${id}`).valueChanges();
   }
-  public obtenerBeacon(id: string): Observable<BeaconI> {
+  public getBeacon(id: string): Observable<BeaconI> {
     return this.afs.doc<BeaconI>(`beacons/${id}`).valueChanges();
   }
 

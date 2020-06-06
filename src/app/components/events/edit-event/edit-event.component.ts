@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EventI } from '../../../shared/models/event.interface';
 import { EventService } from '../event.service';
+import { BeaconI } from 'src/app/shared/models/beacon.interface';
+import { Observable } from 'rxjs';
+import { BeaconService } from '../../beacons/beacon.service';
 
 @Component({
   selector: 'app-edit-event',
@@ -9,6 +12,8 @@ import { EventService } from '../event.service';
   styleUrls: ['./edit-event.component.scss']
 })
 export class EditEventComponent implements OnInit {
+  public salas$: Observable<BeaconI[]>;
+  beacons: BeaconI[] = [];
   topicos = new FormControl('',Validators.required);
   topicosList: string[] = [
     'Animación y simulación', 
@@ -24,7 +29,7 @@ export class EditEventComponent implements OnInit {
     'Detección y reconocimiento de características'
   ];
   @Input() event: EventI;
-  constructor(private eventSvc: EventService) { }
+  constructor(private eventSvc: EventService,  private beaconSvc: BeaconService) { }
 
   public editEventForm = new FormGroup({
     id: new FormControl('', Validators.required),
@@ -37,6 +42,20 @@ export class EditEventComponent implements OnInit {
   })
   ngOnInit() {
     this.initValuesForm();
+    this.salas$ = this.beaconSvc.getAllBeacons();
+    this.salas$
+      .subscribe(beacon => {
+        beacon.forEach(element => {
+            const beaconObj = {
+              id: element.id,
+              name: element.name,
+              sala: element.sala,
+              descrip: element.descrip
+            };
+            this.beacons.push(beaconObj as BeaconI);
+        }
+      )
+    });
   }
   editEvent(event: EventI){
     this.eventSvc.editEventById(event);
