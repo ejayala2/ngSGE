@@ -4,29 +4,35 @@
             <h2>Joel Ayala</h2>
             <h4>ayala2@mail.com</h4>
         </div>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+        <img src="https://www.tuplanweb.com/proyecto/Plantilla/img/user/edwin.jpg" alt="Foto de perfil">
     </div>
 
     <mat-divider></mat-divider>
 
     <h2 matSubheader>Paginas</h2>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/events">Events</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/profile">Perfil</a>
-
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
+        <mat-icon>dashboard</mat-icon>&nbsp;Dashboard
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/events">
+        <mat-icon>calendar_today</mat-icon>&nbsp;Eventos
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/profile">
+        <mat-icon>person</mat-icon>&nbsp;Perfil
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin">
+        <mat-icon>supervisor_account</mat-icon>&nbsp;Usuarios
+    </a>
     <mat-divider></mat-divider>
-
     <h2 matSubheader>Herramientas</h2>
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-        <mat-icon>import_contacts</mat-icon>
-        Contactos
+        <mat-icon>import_contacts</mat-icon>&nbsp;Contactos
     </a>
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-        <mat-icon>contact_phone</mat-icon>
-        Anotaciones
+        <mat-icon>contact_phone</mat-icon>&nbsp;Anotaciones
     </a>
-
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/about">
+        <mat-icon>help</mat-icon>&nbsp;Acerca de
+    </a>
 </mat-nav-list>

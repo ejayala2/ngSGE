@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  public appName = 'SGE';
+  public appName = 'MultiEvent';
   
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   constructor(public authSvc: AuthService) { }

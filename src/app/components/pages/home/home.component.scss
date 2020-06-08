@@ -15,6 +15,20 @@
                 0 1px 3px 0 rgba(0,0,0,1);
 	}
 }
+h2{
+	margin-left: 15px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-table{
+	width: 40%;
+	margin: auto;
+}
+.col-pie{
+	width: 58%;
+}
 .stats-cards {
 	.mat-card {
 	  overflow: hidden;

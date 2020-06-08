@@ -14,3 +14,17 @@
 	  }
 	}
   }
+
+.mat-nav-list .mat-list-item {
+    cursor: pointer;
+    outline: 0;
+    padding: 10px;
+    font-size: 20px;
+	font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+.mat-list-base .mat-subheader {
+	font-size: 20px;
+}
+.mat-list-base {
+	overflow: hidden;
+  }

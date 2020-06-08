@@ -2,7 +2,7 @@
 	<button mat-icon-button (click)="toggleSideBar()">
 		<mat-icon>menu</mat-icon>
 	</button>
-	<a routerLink="/">{{ appName }}</a>
+	<a routerLink="/" class="app_name">Multi<h2>E</h2>vent</a>
 	<span class="fill-remaining-space"></span>
 	<a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
 		<mat-icon>settings</mat-icon>
