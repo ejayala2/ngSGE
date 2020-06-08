@@ -5,16 +5,21 @@
 	mat-icon{
 		cursor: pointer;
 	}
+	box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
 }
 mat-sidenav{
-	width: 200px;
+	width: 250px;
 	cursor: pointer;
 	background-color: #4f9ca5;
 	position: fixed;
 	top: 55px;
 	z-index: 1000;
+	-webkit-box-shadow: 8px 3px 12px -3px rgba(12,34,38,1);
+	-moz-box-shadow: 8px 3px 12px -3px rgba(12,34,38,1);
+	box-shadow: 8px 3px 12px -3px rgba(12,34,38,1);
 }
 .mat-list-base {
+	margin-top: 10px;
     padding-top: 10px;
 	.mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
 		padding: 0px 15px 0px 10px;

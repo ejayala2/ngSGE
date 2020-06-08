@@ -3,6 +3,17 @@
 	width: 90%;
 	margin: 0 auto;
 }
+.container-header{
+	width: 100%;
+	margin: 15px 15px;
+	display: flex;
+	justify-content: center;
+}
+.filtro{
+	display: flex;
+	width: 80%;
+	margin-right: 10px;
+}
 table {
 	width: 100%;
   }
@@ -22,18 +33,17 @@ table {
 	  font-size: 18px;
   }
 
-  .container-btn-new{
-	  display: flex;
-	  justify-content: flex-end;
-	  width: 100%;
-	  margin: 1rem -0.5rem;
-	  button{
-		  font-size: 16px;
-		  margin-right: 20px;
-		  width: 25%;
-		  padding: 0.5rem;
-		  color: #fff;
-		  background-color: #4f9ca5;
-		  cursor: pointer;
-	  }
-  }
+.container-btn-new{
+	display: flex;
+	justify-content: flex-end;
+	margin: 1rem -0.5rem;
+	button{
+	    font-size: 16px;
+		margin-right: 20px;
+		width: 100%;
+		padding: 0.5rem;
+		color: #fff;
+		background-color: #4f9ca5;
+		cursor: pointer;
+	}
+}

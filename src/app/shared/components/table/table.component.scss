@@ -3,6 +3,16 @@
 	width: 90%;
 	margin: 0 auto;
 }
+.container-header{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.filtro{
+	display: flex;
+	width: 80%;
+	margin-right: 10px;
+}
 .mat-paginator {
     background: #fff;
     font-size: 15px;
@@ -99,12 +109,11 @@ table {
   .container-btn-new{
 	  display: flex;
 	  justify-content: flex-end;
-	  width: 100%;
 	  margin: 1rem -0.5rem;
 	  button{
 		  font-size: 16px;
 		  margin-right: 0px;
-		  width: 25%;
+		  width: 100%;
 		  padding: 0.5rem;
 		  color: #fff;
 		  background-color: #4f9ca5;
@@ -113,5 +122,5 @@ table {
   }
   td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type {
     padding-right: 0px;
-}
+}	
   

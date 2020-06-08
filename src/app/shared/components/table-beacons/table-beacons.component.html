@@ -1,12 +1,16 @@
 <div class="container">
-	<mat-form-field>
-		<mat-label>Filter</mat-label>
-		<input matInput (keyup)="applyFilter($beacon)" placeholder="Ex. ium">
-	</mat-form-field>
-	<div class="container-btn-new">
-		<button mat-stroked-button (click)="onNewBeacon()">
-			<mat-icon>note_add</mat-icon>&nbsp; Nuevo Beacon
-		</button>
+	<div class="container-header">
+		<div class="filtro">
+			<mat-form-field>
+				<mat-label>Filter</mat-label>
+				<input matInput (keyup)="applyFilter($beacon)" placeholder="Ex. ium">
+			</mat-form-field>
+		</div>
+		<div class="container-btn-new">
+			<button mat-stroked-button (click)="onNewBeacon()">
+				<mat-icon>note_add</mat-icon>&nbsp;Nueva Sala
+			</button>
+		</div>
 	</div>
 	<div class="mat-elevation-z8">
 		<table mat-table [dataSource]="dataSource" matSort>

@@ -1,20 +1,31 @@
 <mat-card>
 	<mat-card-header>
-		<mat-card-title>Login</mat-card-title>
+		<div class="titulo">
+			<mat-card-title><h2>Multi<h1>E</h1>vent Admin</h2></mat-card-title>
+		</div>
 	</mat-card-header>
 	<mat-card-content>
-		<form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
-			<p>
-				<mat-form-field>
-					<input type="text" matInput placeholder="Usuario" formControlName="email">
-				</mat-form-field>
-			</p>
-			<p>
-				<mat-form-field>
-					<input type="password" matInput placeholder="contraseña" formControlName="password">
-				</mat-form-field>
-			</p>
-			<button type="submit" mat-raised-button color="primary">Aceptar</button>
-		</form>
+		<div class="imagen">
+			<img src="../../../../assets/img/admin.png" alt="admin">
+		</div>
+		<div class="form">
+			<form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+				<h3>Bienvenido!</h3>
+				<p>
+					<mat-form-field>
+						<input type="text" matInput placeholder="Usuario" formControlName="email">
+						<mat-icon matSuffix>account_circle</mat-icon>
+   						<mat-hint>example@mail.com</mat-hint>
+					</mat-form-field>
+				</p>
+				<p>
+					<mat-form-field>
+						<input type="password" matInput placeholder="contraseña" formControlName="password">
+						<mat-icon matSuffix>lock</mat-icon>
+					</mat-form-field>
+				</p>
+				<button type="submit" mat-raised-button color="primary">Login</button>
+			</form>
+		</div>
 	</mat-card-content>
 </mat-card>
