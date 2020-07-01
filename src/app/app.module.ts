@@ -31,6 +31,7 @@ import { EditBeaconComponent } from './components/beacons/edit-beacon/edit-beaco
 import { EditBeaconModule } from './components/beacons/edit-beacon/edit-beacon.module';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { ContainerAppRoutingModule } from './components/pages/container-app/container-app-routing.module';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     MaterialModule,
     EditEventModule,
     NewBeaconModule,
-    EditBeaconModule
+    EditBeaconModule,
+    ContainerAppRoutingModule
   ],
   entryComponents:[
     ModalComponent,

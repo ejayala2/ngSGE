@@ -15,7 +15,6 @@ export class NewEventComponent implements OnInit {
   public salas$: Observable<BeaconI[]>;
   beaconControl = new FormControl('', Validators.required);
   Listbeacons: BeaconI[] = [];
-
   constructor(private eventSvc: EventService, private beaconSvc: BeaconService) { }
   
   topicos = new FormControl('',Validators.required);
@@ -38,12 +37,13 @@ export class NewEventComponent implements OnInit {
     siglas: new FormControl('', Validators.required),
     descrip: new FormControl('', Validators.required),
     sala: new FormControl('', Validators.required),
+    dateselect: new FormControl('', Validators.required),
     topics: this.topicos
   })
 
+
   ngOnInit() {
     this.Listbeacons = [];
-    console.log("estos:",this.Listbeacons);
     this.getsalas();
   }
 

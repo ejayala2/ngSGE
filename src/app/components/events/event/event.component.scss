@@ -14,21 +14,3 @@ p.siglas{
 p.content{
 	text-align: justify;
 }
-.mat-chip-list-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: -4px;
-    margin-top: 0px;
-    margin-right: -4px;
-    margin-bottom: -4px;
-    margin-left: -4px;
-    margin-top: 0px;
-}
-.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
-    background-color: #4682B4;
-    border-radius: 2px;
-    margin-top: 7px;
-    color: #fff;
-}

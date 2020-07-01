@@ -15,6 +15,7 @@ export class EditEventComponent implements OnInit {
   public salas$: Observable<BeaconI[]>;
   beacons: BeaconI[] = [];
   topicos = new FormControl('',Validators.required);
+  //serializedDate = new FormControl((new Date()).toISOString());
   topicosList: string[] = [
     'Animación y simulación', 
     'Segmentación y agrupación en imágenes y videos', 
@@ -29,16 +30,18 @@ export class EditEventComponent implements OnInit {
     'Detección y reconocimiento de características'
   ];
   @Input() event: EventI;
+
   constructor(private eventSvc: EventService,  private beaconSvc: BeaconService) { }
 
   public editEventForm = new FormGroup({
     id: new FormControl('', Validators.required),
     title: new FormControl('', Validators.required),
     siglas: new FormControl('', Validators.required),
-    descrip: new FormControl('', Validators.required),
     sala: new FormControl('', Validators.required),
+    descrip: new FormControl('', Validators.required),
+    //dateselect: new FormControl({value:'', disabled: true}, Validators.required),
+    dateselect: new FormControl('', Validators.required),
     topics: this.topicos,
-
   })
   ngOnInit() {
     this.initValuesForm();
@@ -58,7 +61,7 @@ export class EditEventComponent implements OnInit {
     });
   }
   editEvent(event: EventI){
-    this.eventSvc.editEventById(event);
+    this.eventSvc.saveEvent(event);
   }
 
   private initValuesForm():void{
@@ -68,7 +71,19 @@ export class EditEventComponent implements OnInit {
       siglas:this.event.siglas,
       sala: this.event.idsala,
       descrip:this.event.descrip,
+      dateselect: this.formatDate(this.event.date),
       topics:this.event.topics
     })
+  }
+
+  formatDate(selectDate:String):Date{
+    var splitted = selectDate.split("/");
+    var newSelectDate = new Date();
+    var mes = parseInt(splitted[0]);
+    newSelectDate.setMonth(mes-1);
+    newSelectDate.setDate(+splitted[1]);
+    newSelectDate.setFullYear(+splitted[2]);
+
+    return newSelectDate;
   }
 }

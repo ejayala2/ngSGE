@@ -17,11 +17,15 @@ import {
   MatSortModule,
   MatSelectModule,
   MatDialogModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
   MatFormFieldModule 
 } from '@angular/material';
 
 const myModule= [
   MatCardModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
   MatDialogModule,
   MatButtonModule,
   MatMenuModule,

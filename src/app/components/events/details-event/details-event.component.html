@@ -4,14 +4,25 @@
 			<mat-card-title>
 				{{ event.title }}
 			</mat-card-title>
+			<mat-card-subtitle>
+				<h3>Fecha: {{ event.date }}</h3>
+			</mat-card-subtitle>
 		</mat-card-header>
 		<mat-card-content class="content">
-			<p>
-				{{ event.siglas }}
-			</p>
+			<h3>Descripción:</h3>
 			<p>
 				{{ event.descrip }}
 			</p>
+			<h3>Topicos de interes</h3>
+			<mat-card-actions>
+				<mat-chip-list>
+					<mat-chip-list>
+						<mat-chip selected *ngFor="let topic of event.topics" [ngClass]="topic">
+							{{ topic }}
+						</mat-chip>
+					</mat-chip-list>
+				</mat-chip-list>
+			</mat-card-actions>
 		</mat-card-content>
 	</mat-card>
 </div>

@@ -1,6 +1,7 @@
-.new-event-container{
+.edit-event-container{
 	display: flex;
 	flex-direction: column;
+	width: 800px;
 	form{
 		margin-bottom: 20px;
 		input.mat-flat-button{
@@ -17,8 +18,25 @@
 				width: 50%;
 			}
 		}
-		mat-form-field{
+		.mat-form-field{
+			width: 100%;
+			font-size: 17px;
+		}
+		.textArea{
+			height: 8em;
 			width: 100%;
 		}
+	}
+}
+.siglas-fecha{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	.siglas{
+		width: 45%;
+		margin-right: auto;
+	}
+	.fecha{
+		width: 45%;
 	}
 }

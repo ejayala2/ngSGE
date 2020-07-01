@@ -1,11 +1,12 @@
 .container{
-	margin-top: 25px;
+	margin-top: 10px;
 	display: grid;
 	grid-template-columns: 24% 24% 24% 24%;
 	grid-column-gap: 10px;
 	grid-row: 15px;
 	justify-content: center;
 	.event-card{
+		margin-top: 15px;
 		background-color: #AFEEEE;
 		border-radius: 5px;
 		padding: 20px;

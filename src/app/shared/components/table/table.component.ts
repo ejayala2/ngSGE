@@ -11,7 +11,7 @@ import { BeaconI } from '../../models/beacon.interface';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from './../modal/modal.component';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -25,7 +25,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   public eventObj: EventI;
   public beacon$: Observable<BeaconI>;
 
-  displayedColumns: string[] = ['title', 'siglas', 'sala', 'topics', 'actions'];
+  displayedColumns: string[] = ['title', 'siglas', 'fecha', 'sala', 'topics', 'actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -41,18 +41,20 @@ export class TableComponent implements OnInit, AfterViewInit {
       .subscribe(events => {
         events.forEach(element => {
           this.beacon$ = this.beaconSvc.getBeacon(element.sala);
-          this.beacon$.subscribe(res => {
+          const subscription = this.beacon$.subscribe(res => {
             const eventObj = {
               id: element.id,
               title: element.title,
               siglas: element.siglas,
               descrip: element.descrip,
               topics: element.topics,
+              date: element.date,
               idsala: element.sala,
               sala: res.sala
             };
             this.eventList.push(eventObj as EventI);
             this.dataSource.data = this.eventList;
+            subscription.unsubscribe();
           })
         })
       })
@@ -87,8 +89,8 @@ export class TableComponent implements OnInit, AfterViewInit {
     }).then(result => {
       if (result.value) {
         //Borrar
+        this.eventList = [];
         this.eventSvc.deleteEventById(event).then(() => {
-          this.eventList = [];
           Swal.fire('Eliminado!', 'El evento ha sido eliminado con éxito.', 'success');
         }).catch((error) => {
           Swal.fire('Error!', '¡Ha ocurrido un error al eliminar el evento!', 'error');
@@ -97,7 +99,6 @@ export class TableComponent implements OnInit, AfterViewInit {
     })
   }
   onNewEvent() {
-    console.log('Nuevo evento');
     this.eventList = [];
     this.openDialog();
   }

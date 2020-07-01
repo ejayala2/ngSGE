@@ -1,20 +1,50 @@
+.container{
+	width: 80%;
+	margin: auto;
+}
 .mat-card{
 	background-color: #fff;
 	color: #000;
-	width: 80%;
-	margin: 1% auto;
+	width: 100%;
 	padding: 2%;
-
-	.mat-card-tite{
+	.mat-card-title{
+		text-align: center;
 		font-size: 2rem;
 		text-transform: uppercase;
 	}
 	.mat-card-content{
-		width: 80%;
-		text-align: center;
-		margin: 0 auto;
+		//margin: 0 auto;
+		text-align: justify;
+		font-size: 15px;
+		margin: auto;
+    	width: 97%;
 		p.content{
 			text-align: initial;
 		}
 	}
+}
+h3{
+	text-align: initial;
+	text-transform: uppercase;
+}
+.mat-chip-list-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: -4px;
+    margin-top: 0px;
+    margin-right: -4px;
+    margin-bottom: -4px;
+    margin-left: -4px;
+    margin-top: 0px;
+}
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+    background-color: #4682B4;
+    border-radius: 8px;
+    margin-top: 10px;
+    color: #fff;
+}
+.mat-chip {
+    font-size: 16px;
 }

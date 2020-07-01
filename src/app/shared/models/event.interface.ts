@@ -6,6 +6,8 @@ export interface EventI{
 	siglas: string;
 	descrip: string;
 	topics: string;
+	dateselect?: Date;
+	date?: string;
 	sala?: string;
 	idsala?: string;
 }

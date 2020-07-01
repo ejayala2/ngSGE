@@ -41,17 +41,29 @@ export class EventService {
   }
 
   public saveEvent(event: EventI){
+    const date =  this.formatDate(event.dateselect);
+    console.log('ESTA ES LA CAMBIADA: ',date);
     const eventObj = {
       title: event.title,
       siglas: event.siglas,
       descrip: event.descrip,
       topics: event.topics,
+      date: date,
       sala: event.sala
     };
     if (event.id){
+      console.log('ENTRO A EDITAR');
       return this.eventsCollection.doc(event.id).update(eventObj);
     }else{
       return this.eventsCollection.add(eventObj);
     }
+  }
+
+  formatDate(date:Date):string{
+    const day = date.getDate();
+    const month = date.getMonth()+1;
+    const year = date.getFullYear();
+
+    return `${month}/${day}/${year}`;
   }
 }
