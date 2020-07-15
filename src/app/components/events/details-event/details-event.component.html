@@ -5,8 +5,16 @@
 				{{ event.title }}
 			</mat-card-title>
 			<mat-card-subtitle>
+				<h3>{{ event.siglas }}</h3>
+			</mat-card-subtitle>
+			<mat-card-subtitle>
 				<h3>Fecha: {{ event.date }}</h3>
 			</mat-card-subtitle>
+			<!--<mat-card-subtitle>
+				<h3 *ngIf="beacon$ |async as beacon">
+					Sala: {{ beacon.sala }}
+				</h3>
+			</mat-card-subtitle>-->
 		</mat-card-header>
 		<mat-card-content class="content">
 			<h3>Descripción:</h3>
@@ -25,9 +33,90 @@
 			</mat-card-actions>
 		</mat-card-content>
 	</mat-card>
+	<div class="example-button-container">
+		<button mat-fab color="primary" aria-label="Example icon button with a bookmark icon" (click)="onEditEvent(event)" class="ButtonSubEvent">
+		  <mat-icon>add</mat-icon>
+		</button>
+	</div>
+</div><br>
+<mat-divider></mat-divider>
+<div class="subevents"  *ngIf="subevent$ | async as events; else noSubEvent">
+	<mat-card class="card">
+		<mat-card class="card-header card-header-warning">
+			<mat-card-header>
+				<mat-card-title class="card-title">Subeventos</mat-card-title>
+			</mat-card-header>
+		</mat-card>
+		<mat-card-content class="card-body table-responsive">
+			<table mat-table [dataSource]="dataSource" matSort>
+				<!-- Titulo Column -->
+				<ng-container matColumnDef="title">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </th>
+					<td mat-cell *matCellDef="let element"> {{element.title}} </td>
+				</ng-container>
+				<!-- Siglas Column 
+				<ng-container matColumnDef="siglas">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header> Siglas </th>
+					<td mat-cell *matCellDef="let element"> {{element.siglas}} </td>
+				</ng-container>-->
+				<!-- Fecha Column -->
+				<ng-container matColumnDef="fecha">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header> 
+						Fecha <p id="fecha">&nbsp;(Mes/Día/Año)</p>
+					</th>
+					<td mat-cell *matCellDef="let element"> {{element.date}} </td>
+				</ng-container>
+				<!-- Sala Column -->
+				<ng-container matColumnDef="sala">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header> Sala </th>
+					<td mat-cell *matCellDef="let element"> {{element.sala}} </td>
+				</ng-container>
+				<!-- Topicos Column 
+				<ng-container matColumnDef="topics">
+					<th mat-header-cell *matHeaderCellDef> Topicos </th>
+					<td mat-cell *matCellDef="let element">
+						<mat-list>
+							<mat-list-item *ngFor="let topic of element.topics">{{topic}}</mat-list-item>
+						</mat-list>
+					</td>
+				</ng-container>-->
+
+				<!-- Barra de acciones Column -->
+				<ng-container matColumnDef="actions">
+					<th mat-header-cell *matHeaderCellDef> Acciones </th>
+					<td mat-cell *matCellDef="let element">
+						<button mat-stroked-button color="accent" (click)="onEditsubEvent(element)">
+							<mat-icon>edit</mat-icon>
+						</button>
+						<button mat-stroked-button color="warning" (click)="onDeletesubEvent(element)">
+							<mat-icon>delete</mat-icon>
+						</button>
+					</td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+			<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+		</mat-card-content>
+	</mat-card>
 </div>
 <ng-template #loading>
 	<div class="container-spinner">
 		<mat-spinner></mat-spinner>
+	</div>
+</ng-template>
+<ng-template #noSubEvent>
+	<div class="noSubEvents">
+		<mat-card>
+			<mat-card-header>
+				<mat-card-title>
+					<h3 color="primary" >Registre un subevento!</h3>
+				</mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+				No existen sub-eventos dentro de este evento.
+			</mat-card-content>
+		</mat-card>
 	</div>
 </ng-template>

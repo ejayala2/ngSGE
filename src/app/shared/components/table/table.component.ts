@@ -33,9 +33,6 @@ export class TableComponent implements OnInit, AfterViewInit {
   constructor(private eventSvc: EventService, private beaconSvc: BeaconService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    /*this.events$ = this.eventSvc.getAllEvents();
-    this.events$
-      .subscribe(events=> (this.dataSource.data = events));*/
     this.events$ = this.eventSvc.getAllEvents();
     this.events$
       .subscribe(events => {

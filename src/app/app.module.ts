@@ -32,6 +32,7 @@ import { EditBeaconModule } from './components/beacons/edit-beacon/edit-beacon.m
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { ContainerAppRoutingModule } from './components/pages/container-app/container-app-routing.module';
+import { NewSubeventComponent } from './components/events/new-subevent/new-subevent.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ContainerAppRoutingModule } from './components/pages/container-app/cont
     BeaconComponent,
     ModalBeaconsComponent,
     EditBeaconComponent,
-    SidebarComponent
+    SidebarComponent,
+    NewSubeventComponent
   ],
   imports: [
     AngularFireStorageModule,

@@ -15,7 +15,6 @@ export class EditEventComponent implements OnInit {
   public salas$: Observable<BeaconI[]>;
   beacons: BeaconI[] = [];
   topicos = new FormControl('',Validators.required);
-  //serializedDate = new FormControl((new Date()).toISOString());
   topicosList: string[] = [
     'Animación y simulación', 
     'Segmentación y agrupación en imágenes y videos', 
@@ -30,7 +29,6 @@ export class EditEventComponent implements OnInit {
     'Detección y reconocimiento de características'
   ];
   @Input() event: EventI;
-
   constructor(private eventSvc: EventService,  private beaconSvc: BeaconService) { }
 
   public editEventForm = new FormGroup({
@@ -65,6 +63,7 @@ export class EditEventComponent implements OnInit {
   }
 
   private initValuesForm():void{
+    
     this.editEventForm.patchValue({
       id: this.event.id,
       title:this.event.title,

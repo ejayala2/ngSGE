@@ -1,0 +1,25 @@
+.new-event-container{
+	display: flex;
+	flex-direction: column;
+	form{
+		margin-bottom: 20px;
+		input.mat-flat-button{
+			width: 100%;
+			background: #4f9ca5;
+			&:hover{
+				background: #368f99;
+			}
+		}
+		.container-button{
+			min-height: 80px;
+			input.mat-flat-button{
+				color: #ffff;
+				width: 50%;
+			}
+		}
+		mat-form-field{
+			width: 100%;
+		}
+	}
+
+}

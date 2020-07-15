@@ -1,5 +1,3 @@
-import { BeaconI } from './beacon.interface';
-
 export interface EventI{
 	id?: string;
 	title: string;
@@ -10,4 +8,5 @@ export interface EventI{
 	date?: string;
 	sala?: string;
 	idsala?: string;
+	idSubevents?: any;
 }
